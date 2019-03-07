@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		34533E1221A394CB007B3F56 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34533E1121A394CB007B3F56 /* main.cpp */; };
+		34533E1A21D5B2E4007B3F56 /* GameRulesUtility.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34533E1821D5B2E4007B3F56 /* GameRulesUtility.cpp */; };
+		34CEE63E21DD9C65001A0DBE /* Constants.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34CEE63C21DD9C65001A0DBE /* Constants.cpp */; };
+		34CEE64421DD9E43001A0DBE /* GameRuleActions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34CEE64221DD9E43001A0DBE /* GameRuleActions.cpp */; };
+		34CEE64821DEDF56001A0DBE /* GameActionUtility.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34CEE64621DEDF56001A0DBE /* GameActionUtility.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +29,14 @@
 /* Begin PBXFileReference section */
 		34533E0E21A394CB007B3F56 /* CPlusPlusProject */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CPlusPlusProject; sourceTree = BUILT_PRODUCTS_DIR; };
 		34533E1121A394CB007B3F56 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		34533E1821D5B2E4007B3F56 /* GameRulesUtility.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameRulesUtility.cpp; sourceTree = "<group>"; };
+		34533E1921D5B2E4007B3F56 /* GameRulesUtility.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GameRulesUtility.hpp; sourceTree = "<group>"; };
+		34CEE63C21DD9C65001A0DBE /* Constants.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Constants.cpp; sourceTree = "<group>"; };
+		34CEE63D21DD9C65001A0DBE /* Constants.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Constants.hpp; sourceTree = "<group>"; };
+		34CEE64221DD9E43001A0DBE /* GameRuleActions.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameRuleActions.cpp; sourceTree = "<group>"; };
+		34CEE64321DD9E43001A0DBE /* GameRuleActions.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GameRuleActions.hpp; sourceTree = "<group>"; };
+		34CEE64621DEDF56001A0DBE /* GameActionUtility.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameActionUtility.cpp; sourceTree = "<group>"; };
+		34CEE64721DEDF56001A0DBE /* GameActionUtility.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GameActionUtility.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,9 +69,33 @@
 		34533E1021A394CB007B3F56 /* CPlusPlusProject */ = {
 			isa = PBXGroup;
 			children = (
+				34CEE64521DD9E4A001A0DBE /* actions */,
+				34CEE63F21DD9D71001A0DBE /* utilities */,
 				34533E1121A394CB007B3F56 /* main.cpp */,
 			);
 			path = CPlusPlusProject;
+			sourceTree = "<group>";
+		};
+		34CEE63F21DD9D71001A0DBE /* utilities */ = {
+			isa = PBXGroup;
+			children = (
+				34CEE63C21DD9C65001A0DBE /* Constants.cpp */,
+				34CEE63D21DD9C65001A0DBE /* Constants.hpp */,
+				34533E1821D5B2E4007B3F56 /* GameRulesUtility.cpp */,
+				34533E1921D5B2E4007B3F56 /* GameRulesUtility.hpp */,
+				34CEE64621DEDF56001A0DBE /* GameActionUtility.cpp */,
+				34CEE64721DEDF56001A0DBE /* GameActionUtility.hpp */,
+			);
+			path = utilities;
+			sourceTree = "<group>";
+		};
+		34CEE64521DD9E4A001A0DBE /* actions */ = {
+			isa = PBXGroup;
+			children = (
+				34CEE64221DD9E43001A0DBE /* GameRuleActions.cpp */,
+				34CEE64321DD9E43001A0DBE /* GameRuleActions.hpp */,
+			);
+			path = actions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -72,6 +108,7 @@
 				34533E0A21A394CB007B3F56 /* Sources */,
 				34533E0B21A394CB007B3F56 /* Frameworks */,
 				34533E0C21A394CB007B3F56 /* CopyFiles */,
+				34CEE64921DEEFBC001A0DBE /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -113,12 +150,36 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		34CEE64921DEEFBC001A0DBE /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "TAGS=\"TODO:|FIXME:\"\nERRORTAG=\"ERROR:\"\nfind \"${SRCROOT}\" \\( -name \"*.h\" -or -name \"*.m\" -or -name \"*.swift\" \\) -print0 | xargs -0 egrep --with-filename --line-number --only-matching \"($TAGS).*\\$|($ERRORTAG).*\\$\" | perl -p -e \"s/($TAGS)/ warning: \\$1/\" | perl -p -e \"s/($ERRORTAG)/ error: \\$1/\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		34533E0A21A394CB007B3F56 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34533E1A21D5B2E4007B3F56 /* GameRulesUtility.cpp in Sources */,
+				34CEE63E21DD9C65001A0DBE /* Constants.cpp in Sources */,
 				34533E1221A394CB007B3F56 /* main.cpp in Sources */,
+				34CEE64821DEDF56001A0DBE /* GameActionUtility.cpp in Sources */,
+				34CEE64421DD9E43001A0DBE /* GameRuleActions.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
