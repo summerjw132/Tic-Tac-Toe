@@ -11,9 +11,12 @@
 
 #include <stdio.h>
 
-const int X = 1
-        , O = -1
-        , EMPTY = 0;
-const char YES = 'Y'
-        , NO = 'N';
+const int
+X = 1
+, O = -1
+, EMPTY = 0;
+const char
+YES = 'Y'
+, NO = 'N'
+, QUIT = 'Q';
 #endif /* Constants_hpp */

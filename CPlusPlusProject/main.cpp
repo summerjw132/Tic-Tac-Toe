@@ -1,6 +1,7 @@
 #include <cstdlib>
 #include <iostream>
 #include "utilities/Constants.hpp"
+#include "utilities/GameActionUtility.hpp"
 #include "utilities/GameRulesUtility.hpp"
 
 using namespace std;
@@ -8,26 +9,10 @@ using namespace std;
 int board[3][3];
 int currentPlayer;
 
-
-/// Game Rules
-
+// Game Actions
 
 
 
-//THese functions have to be coded
-void clearBoard(){                      //CLeards the board!
-    for(int i = 0; i < 3; i++){
-        for(int j = 0; j < 3; j++){
-            
-            board[i][j] = EMPTY;        //Set every cell in the board to EMPTY
-            
-        }
-        
-    }
-    currentPlayer = X;                  // Player X starts first
-    return;                             //not needed
-    
-}
 void putMark(int x, int y){             //mark row i column j
     board[x][y] = currentPlayer;        //mark cell with current player
     currentPlayer = -currentPlayer;
@@ -60,9 +45,10 @@ void game(){
     bool playerIsStillPlaying = true;
     
     while(playerIsStillPlaying){
-        clearBoard();
+        
+        clearBoard(board, currentPlayer);
         printBoard();
-        //Based on these marks, X will wil!
+        
         while(getWinner(board) == EMPTY
               && isBoardFull(board) == false){
             //ask for x
@@ -106,7 +92,7 @@ void game(){
 }
 
 int main(){
-    
+  
     game();
     
     cout<<"\n_________________\n\n"<<endl;
@@ -115,12 +101,13 @@ int main(){
     return EXIT_SUCCESS; // just for padding (formatting)
     
     
-    //TODO: Play again?
+    //TODO: Play again? --> Separate this into its own method if possible
     //TODO: Exit at any time
     //TODO: Introduce AI into the mix!
-    //TODO: Set this code up in GIT
     //TODO: Garbage Collection
     //TODO: Move Game Actions into the GameActionUtility class
+    //TODO: If I made a mistake, select
+    //TODO: Invalid move checking
 }
 
 //PvP - Pseudocode:

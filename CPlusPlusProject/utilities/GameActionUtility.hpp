@@ -10,5 +10,6 @@
 #define GameActionUtility_hpp
 
 #include <stdio.h>
-
+void clearBoard(int (&board)[3][3], int& currentPlayer);
+//this method is not updating the board that is being passed in.
 #endif /* GameActionUtility_hpp */
